@@ -1,7 +1,7 @@
 pipeline{
     agent {
         label {
-    .        label "slave-1"
+            label "slave-1"
             customWorkspace "/mnt/"
         }
     }
@@ -18,7 +18,7 @@ pipeline{
                     }    
                     steps {
                         sh "rm -rf /mnt/git/*"
-                        sh "git clone https://github.com/Nikita2405/game-of-life.git "
+                        sh "git clone https://github.com/Nikita2405/game-of-life.git"
                         dir ("/mnt/git/game-of-life/"){
                             sh "mvn clean install"
                         }
@@ -30,7 +30,9 @@ pipeline{
                         label {
                             label "slave-2"
                             customWorkspace "/mnt/git/"
-                       :q                   steps {
+                        }
+                    }    
+                    steps {
                         sh "rm -rf /mnt/git/*"
                         sh "git clone https://github.com/abhijeet-4423/game-of-life.git"
                         dir ("/mnt/git/game-of-life/"){
